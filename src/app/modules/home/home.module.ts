@@ -4,13 +4,20 @@ import {RouterModule} from '@angular/router';
 import {homeRoutes} from './home-routing.module';
 import {HubeauService} from './services/hubeau.service';
 import {HttpClientModule} from '@angular/common/http';
+import {GoogleChartsModule} from 'angular-google-charts';
+import {HubeauObservationsChart} from './components/hubeau/charts/observations/hubeauObservationsChart.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
     imports: [
-       HttpClientModule
+        HttpClientModule,
+        GoogleChartsModule.forRoot(),
+        CommonModule,
     ],
     declarations: [
-        HomePage
+        HomePage,
+
+        HubeauObservationsChart
     ],
     providers: [
         HubeauService

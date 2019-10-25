@@ -4,11 +4,11 @@ export class Observation {
     code_site: string;
     code_station: string;
     grandeur_hydro: string;
-    date_debut_serie: Date;
-    date_fin_serie: Date;
+    date_debut_serie: Moment;
+    date_fin_serie: Moment;
     statut_serie: number;
     code_systeme_alti_serie: number;
-    date_obs: Date;
+    date_obs: Moment;
     resultat_obs: number;
     code_methode_obs: number;
     libelle_methode_obs: string;
