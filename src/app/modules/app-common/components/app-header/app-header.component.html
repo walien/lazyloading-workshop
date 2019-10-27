@@ -1,5 +1,7 @@
 <div class="app-header">
     <span>LazyLoading Workshop</span>
-    <span class="connected-user" *ngIf="user">{{ user?.fullName }} - {{ user?.role }}</span>
+    <span class="connected-user" *ngIf="user">
+        {{ user?.fullName }} - {{ user?.role }} - <a href="#" (click)="logout()">Logout</a>
+    </span>
 </div>
 

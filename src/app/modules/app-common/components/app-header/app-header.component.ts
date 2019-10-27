@@ -17,7 +17,11 @@ export class AppHeaderComponent implements OnInit {
 
     ngOnInit() {
         this.authService.userEvents
-            .pipe(filter(user => user !== undefined && user !== null))
+            .pipe(filter(user => user !== undefined))
             .subscribe(user => this.user = user);
+    }
+
+    public logout(): void {
+        this.authService.logout();
     }
 }

@@ -1,7 +1,7 @@
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {Observable} from 'rxjs';
-import {filter, tap} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 
 export abstract class AbstractGuard {
 
@@ -13,11 +13,17 @@ export abstract class AbstractGuard {
             this.authService.userEvents
                 .pipe(
                     filter(user => user !== undefined),
-                    tap(user => console.log(`is-${this.requiredRole}-user guard invoked `, user))
+                    tap(user => console.log(`is-${this.requiredRole}-user guard invoked `, user)),
+                    map(user => user !== null && user.role === this.requiredRole),
+                    tap(hasRequiredRole => {
+                        observer.next(hasRequiredRole);
+                        observer.complete();
+                    })
                 )
-                .subscribe(user => {
-                    observer.next(user !== null && user.role === this.requiredRole);
-                    observer.complete();
+                .subscribe(hasRequiredRole => {
+                    if (!hasRequiredRole) {
+                        this.router.navigate(['/']);
+                    }
                 });
         });
     }
