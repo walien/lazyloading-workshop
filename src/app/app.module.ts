@@ -6,11 +6,10 @@ import {AppComponent} from './app.component';
 import {AuthModule} from './modules/auth/auth.module';
 import {HomeModule} from './modules/home/home.module';
 import {AdminModule} from './modules/admin/admin.module';
-import {AppHeaderComponent} from './components/app-header/app-header.component';
+import {AppCommonModule} from './modules/app-common/app-common.module';
 
 const components: any[] = [
-    AppComponent,
-    AppHeaderComponent
+    AppComponent
 ];
 
 @NgModule({
@@ -21,6 +20,7 @@ const components: any[] = [
         BrowserModule,
         AppRoutingModule,
 
+        AppCommonModule,
         AuthModule,
         HomeModule,
         AdminModule
