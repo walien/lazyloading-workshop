@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import * as moment from 'moment';
 import {Moment} from 'moment';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Observations} from '../model/hubeau/Observations';
 import {tap} from 'rxjs/operators';
-import * as moment from 'moment';
 
 @Injectable()
 export class HubeauService {
@@ -25,7 +25,7 @@ export class HubeauService {
             .append('longitude', params.longitude)
             .append('size', String(params.size));
 
-        return this.http.get<Observations>(url, {params : hubeauParams})
+        return this.http.get<Observations>(url, {params: hubeauParams})
             .pipe(
                 tap(observations => {
                     observations.data.forEach(observation => {

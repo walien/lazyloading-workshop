@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {HubeauService, ObservationRequestParam} from '../../services/hubeau.service';
-import {Moment} from 'moment';
+import {Component} from '@angular/core';
+import {ObservationRequestParam} from '../../services/hubeau.service';
 import * as moment from 'moment';
 
 @Component({
