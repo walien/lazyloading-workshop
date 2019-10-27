@@ -16,6 +16,7 @@ const pages: any[] = [
     imports: [
         FormsModule,
         BrowserModule,
+
         AuthModule
     ],
     declarations: [
