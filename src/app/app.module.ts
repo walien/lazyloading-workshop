@@ -6,10 +6,16 @@ import {AppComponent} from './app.component';
 import {AuthModule} from './modules/auth/auth.module';
 import {HomeModule} from './modules/home/home.module';
 import {AdminModule} from './modules/admin/admin.module';
+import {AppHeaderComponent} from './components/app-header/app-header.component';
+
+const components: any[] = [
+    AppComponent,
+    AppHeaderComponent
+];
 
 @NgModule({
     declarations: [
-        AppComponent
+        components
     ],
     imports: [
         BrowserModule,
