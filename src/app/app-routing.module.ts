@@ -3,7 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {authRoutes} from './modules/auth/auth-routing.module';
 import {homeRoutes} from './modules/home/home-routing.module';
 import {adminRoutes} from './modules/admin/admin-routing.module';
-
+import {IsStdUserGuard} from './modules/auth/guards/is-std-user.guard';
+import {IsAdminUserGuard} from './modules/auth/guards/is-admin-user.guard';
 
 const routes: Routes = [
     {
@@ -17,16 +18,18 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        children: homeRoutes
+        children: homeRoutes,
+        canActivate: [IsStdUserGuard]
     },
     {
         path: 'admin',
-        children: adminRoutes
+        children: adminRoutes,
+        canActivate: [IsAdminUserGuard]
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, {useHash: true})],
     exports: [RouterModule]
 })
 export class AppRoutingModule {
