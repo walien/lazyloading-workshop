@@ -8,6 +8,7 @@ import {Observations} from '../../../../model/hubeau/Observations';
     styleUrls: ['./hubeauObservationsChart.component.scss'],
 })
 export class HubeauObservationsChart {
+
     @Input() chartType: string;
     chartData: Array<any>;
 
@@ -16,9 +17,9 @@ export class HubeauObservationsChart {
 
     @Input()
     set observationRequestParams(observationRequestParam: ObservationRequestParam) {
-        this.hubeauService.fetchObservations(observationRequestParam).subscribe(observations => {
-            this.buildChartData(observations);
-        });
+        this.hubeauService
+            .fetchObservations(observationRequestParam)
+            .subscribe(observations => this.buildChartData(observations));
     }
 
     private buildChartData(observations: Observations) {

@@ -4,19 +4,20 @@ import {Moment} from 'moment';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Observations} from '../model/hubeau/Observations';
-import {tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class HubeauService {
+
     private static readonly HUBEAU_BASE_URL = 'https://hubeau.eaufrance.fr/api/v1/hydrometrie/';
-    private static readonly HUBEAU_OBSERVATIONS = 'observations_tr';
+    private static readonly HUBEAU_OBSERVATIONS_API_URL = 'observations_tr';
 
     constructor(private readonly http: HttpClient) {
     }
 
-    fetchObservations(params: ObservationRequestParam): Observable<Observations> {
-        const url = HubeauService.HUBEAU_BASE_URL + HubeauService.HUBEAU_OBSERVATIONS;
+    public fetchObservations(params: ObservationRequestParam): Observable<Observations> {
 
+        const url = HubeauService.HUBEAU_BASE_URL + HubeauService.HUBEAU_OBSERVATIONS_API_URL;
         const hubeauParams = new HttpParams()
             .append('date_debut_obs', params.startDate.format())
             .append('date_fin_obs', params.endDate.format())
@@ -25,16 +26,20 @@ export class HubeauService {
             .append('longitude', params.longitude)
             .append('size', String(params.size));
 
-        return this.http.get<Observations>(url, {params: hubeauParams})
+        return this.http
+            .get<Observations>(url, {params: hubeauParams})
             .pipe(
-                tap(observations => {
-                    observations.data.forEach(observation => {
-                        observation.date_debut_serie = moment(observation.date_debut_serie);
-                        observation.date_fin_serie = moment(observation.date_fin_serie);
-                        observation.date_obs = moment(observation.date_obs);
-                    });
-                })
+                map(observations => this.prepare(observations))
             );
+    }
+
+    private prepare(observations): Observations {
+        observations.data.forEach(observation => {
+            observation.date_debut_serie = moment(observation.date_debut_serie);
+            observation.date_fin_serie = moment(observation.date_fin_serie);
+            observation.date_obs = moment(observation.date_obs);
+        });
+        return observations;
     }
 }
 
