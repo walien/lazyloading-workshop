@@ -3,8 +3,8 @@ import * as moment from 'moment';
 import {Moment} from 'moment';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Observations} from '../model/hubeau/Observations';
 import {map} from 'rxjs/operators';
+import {Observations} from '../model/hubeau/observations.model';
 
 @Injectable()
 export class HubeauService {

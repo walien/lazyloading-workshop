@@ -1,13 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {HubeauService, ObservationRequestParam} from '../../../../services/hubeau.service';
-import {Observations} from '../../../../model/hubeau/Observations';
+import {Observations} from '../../../../model/hubeau/observations.model';
 
 @Component({
     selector: 'hubeau-observations-chart',
-    templateUrl: './hubeauObservationsChart.component.html',
-    styleUrls: ['./hubeauObservationsChart.component.scss'],
+    templateUrl: './hubeau-observations-chart.component.html',
+    styleUrls: ['./hubeau-observations-chart.component.scss'],
 })
-export class HubeauObservationsChart {
+export class HubeauObservationsChartComponent {
 
     @Input() chartType: string;
     chartData: Array<any>;
@@ -22,16 +22,11 @@ export class HubeauObservationsChart {
             .subscribe(observations => this.buildChartData(observations));
     }
 
-    private buildChartData(observations: Observations) {
-        console.log(observations);
+    private buildChartData(observations: Observations): void {
         this.chartData = [];
-
-        observations.data.sort((obs1, obs2) => {
-            return obs1.date_obs.isAfter(obs2.date_obs) ? 1 : -1;
-        });
-
-        observations.data.forEach(observation => {
-            this.chartData.push([observation.date_obs.format('hh:mm'), observation.resultat_obs]);
-        });
+        observations.data
+            .sort((obs1, obs2) => obs1.date_obs.isAfter(obs2.date_obs) ? 1 : -1);
+        observations.data
+            .forEach(observation => this.chartData.push([observation.date_obs.format('hh:mm'), observation.resultat_obs]));
     }
 }

@@ -3,8 +3,18 @@ import {HomePage} from './pages/home/home.page';
 import {HubeauService} from './services/hubeau.service';
 import {HttpClientModule} from '@angular/common/http';
 import {GoogleChartsModule} from 'angular-google-charts';
-import {HubeauObservationsChart} from './components/hubeau/charts/observations/hubeauObservationsChart.component';
 import {CommonModule} from '@angular/common';
+import {HubeauObservationsChartComponent} from './components/hubeau/charts/observations/hubeau-observations-chart.component';
+
+const components: any[] = [
+    HubeauObservationsChartComponent
+];
+const services: any[] = [
+    HubeauService
+];
+const pages: any[] = [
+    HomePage
+];
 
 @NgModule({
     imports: [
@@ -13,12 +23,11 @@ import {CommonModule} from '@angular/common';
         CommonModule,
     ],
     declarations: [
-        HomePage,
-
-        HubeauObservationsChart
+        components,
+        pages
     ],
     providers: [
-        HubeauService
+        services
     ]
 })
 export class HomeModule {

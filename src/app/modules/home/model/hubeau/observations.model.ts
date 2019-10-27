@@ -1,4 +1,4 @@
-import {Observation} from './Observation';
+import {Observation} from './observation.model';
 
 export class Observations {
     count: string;

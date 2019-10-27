@@ -7,6 +7,11 @@ import {adminRoutes} from './modules/admin/admin-routing.module';
 
 const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+    },
+    {
         path: 'login',
         children: authRoutes
     },
