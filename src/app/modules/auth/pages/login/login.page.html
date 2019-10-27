@@ -1,1 +1,9 @@
 LOGIN
+
+<form #form="ngForm" (ngSubmit)="authenticate(login, password)">
+
+    <input type="text" name="login" [(ngModel)]="login" required>
+    <input type="password" name="password" [(ngModel)]="password" required>
+    <button type="submit" [disabled]="form.invalid">Authenticate</button>
+
+</form>
