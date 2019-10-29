@@ -18,8 +18,8 @@ const components: any[] = [
     ],
     imports: [
         CommonModule,
-        RouterModule.forRoot(appRootRoutes, {useHash: true}),
         BrowserModule,
+        RouterModule.forRoot(appRootRoutes, {useHash: true}),
 
         AppModule,
         AuthModule
