@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {User} from '../../model/user.model';
 
 @Component({
     templateUrl: './login.page.html',
@@ -22,14 +21,10 @@ export class LoginPage {
             .pipe(
                 tap(user => console.log('authenticated as ', user))
             )
-            .subscribe(user => this.redirectUser(user));
+            .subscribe(user => this.redirectUser());
     }
 
-    private redirectUser(user: User): void {
-        if (user.role === 'ADMIN') {
-            this.router.navigate(['/admin']);
-        } else {
-            this.router.navigate(['/home']);
-        }
+    private redirectUser(): void {
+        this.router.navigate(['/home']);
     }
 }

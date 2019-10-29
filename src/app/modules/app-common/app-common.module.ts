@@ -4,6 +4,7 @@ import {AuthModule} from '../auth/auth.module';
 import {AppHeaderComponent} from './components/app-header/app-header.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {LocalizationService} from './services/localization.service';
+import {RouterModule} from '@angular/router';
 
 const components: any[] = [
     AppHeaderComponent
@@ -18,6 +19,7 @@ const pages: any[] = [
     imports: [
         FormsModule,
         BrowserModule,
+        RouterModule,
 
         AuthModule
     ],

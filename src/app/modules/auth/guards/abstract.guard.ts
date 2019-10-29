@@ -5,7 +5,7 @@ import {filter, map, tap} from 'rxjs/operators';
 
 export abstract class AbstractGuard {
 
-    protected constructor(private authService: AuthService, private router: Router, private requiredRole: string) {
+    protected constructor(private authService: AuthService, private router: Router, private requiredRoles: string[]) {
     }
 
     public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
@@ -13,8 +13,8 @@ export abstract class AbstractGuard {
             this.authService.userEvents
                 .pipe(
                     filter(user => user !== undefined),
-                    tap(user => console.log(`is-${this.requiredRole}-user guard invoked `, user)),
-                    map(user => user !== null && user.role === this.requiredRole),
+                    tap(user => console.log(`is-${this.requiredRoles}-user guard invoked `, user)),
+                    map(user => user !== null && this.requiredRoles.indexOf(user.role) >= 0),
                     tap(hasRequiredRole => {
                         observer.next(hasRequiredRole);
                         observer.complete();

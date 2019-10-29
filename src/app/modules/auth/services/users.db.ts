@@ -2,7 +2,7 @@ import {User} from '../model/user.model';
 
 export const users: User[] = [
     {
-        fullName: 'Admin',
+        fullName: 'Administrator',
         login: 'admin',
         password: 'admin',
         role: 'ADMIN'

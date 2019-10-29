@@ -1,7 +1,7 @@
 <div class="app-header">
-    <span>LazyLoading Workshop</span>
+    <span><a [routerLink]="['/home']">LazyLoading Workshop</a></span>
     <span class="connected-user" *ngIf="user">
-        {{ user?.fullName }} - {{ user?.role }} - <a href="#" (click)="logout()">Logout</a>
+        {{ user?.fullName }} - {{ user?.role }} - <a [routerLink]="['/admin']">Admin console</a> - <a href="#" (click)="logout()">Logout</a>
     </span>
 </div>
 

@@ -7,6 +7,6 @@ import {AbstractGuard} from './abstract.guard';
 export class IsStdUserGuard extends AbstractGuard implements CanActivate {
 
     constructor(authService: AuthService, router: Router) {
-        super(authService, router, 'STD');
+        super(authService, router, ['STD', 'ADMIN']);
     }
 }
