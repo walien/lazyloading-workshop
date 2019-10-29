@@ -19,7 +19,6 @@ const pages: any[] = [
 
 @NgModule({
     imports: [
-        //     RouterModule.forChild(authRoutes),
         FormsModule
     ],
     declarations: [

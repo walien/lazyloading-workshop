@@ -11,7 +11,6 @@ const pages: any[] = [
 
 @NgModule({
     imports: [
-        //     RouterModule.forChild(adminRoutes),
         FormsModule,
         BrowserModule
     ],

@@ -25,6 +25,6 @@ export class LoginPage {
     }
 
     private redirectUser(): void {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/app/home']);
     }
 }

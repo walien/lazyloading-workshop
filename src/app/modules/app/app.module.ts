@@ -1,12 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {AuthModule} from './modules/auth/auth.module';
-import {HomeModule} from './modules/home/home.module';
-import {AdminModule} from './modules/admin/admin.module';
-import {AppCommonModule} from './modules/app-common/app-common.module';
+import {HomeModule} from './home/home.module';
+import {AdminModule} from './admin/admin.module';
+import {AppCommonModule} from './app-common/app-common.module';
+import {RouterModule} from '@angular/router';
 
 const components: any[] = [
     AppComponent
@@ -18,15 +17,14 @@ const components: any[] = [
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
+        RouterModule,
 
         AppCommonModule,
-        AuthModule,
+
         HomeModule,
         AdminModule
     ],
-    providers: [],
-    bootstrap: [AppComponent]
+    providers: []
 })
 export class AppModule {
 }

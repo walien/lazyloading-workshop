@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ObservationRequestParam} from '../../services/hubeau.service';
-import {LocalizationService} from '../../../app-common/services/localization.service';
 import * as moment from 'moment';
-import {Localization} from '../../../app-common/model/localization.model';
 import {LocalizationHydrometry} from '../model/localization-hydrometry.model';
+import {LocalizationService} from '../../../app-common/services/localization.service';
+import {Localization} from '../../../app-common/model/localization.model';
 
 @Component({
     templateUrl: './home.page.html',
