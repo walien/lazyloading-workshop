@@ -20,8 +20,7 @@ const pages: any[] = [
     imports: [
         CommonModule,
         HttpClientModule,
-        GoogleChartsModule.forRoot(),
-        CommonModule
+        GoogleChartsModule.forRoot()
     ],
     declarations: [
         components,
