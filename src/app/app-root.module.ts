@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppRootComponent} from './app-root.component';
 import {RouterModule} from '@angular/router';
 import {appRootRoutes} from './app-root.routes';
-import {AppModule} from './modules/app/app.module';
+import {CommonModule} from '@angular/common';
 import {AuthModule} from './modules/auth/auth.module';
 
 const components: any[] = [
@@ -16,6 +16,7 @@ const components: any[] = [
         components
     ],
     imports: [
+        CommonModule,
         RouterModule.forRoot(appRootRoutes, {useHash: true}),
         BrowserModule,
 
