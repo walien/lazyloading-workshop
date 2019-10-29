@@ -12,8 +12,7 @@ const pages: any[] = [
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
-        BrowserModule
+        FormsModule
     ],
     declarations: [
         components,
