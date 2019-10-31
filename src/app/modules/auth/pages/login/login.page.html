@@ -1,9 +1,26 @@
-LOGIN
+<div class="view-login">
+    <div class="login-title">
+        <img src="../../../../../assets/images/svg/logo-app.svg" width="118">
+    </div>
 
-<form #form="ngForm" (ngSubmit)="authenticate(login, password)">
+    <div class="card login-card">
+        <div class="card-content">
+            <h2 class="text-primary">Connectez-vous</h2>
+            <form class="login-card-form" #form="ngForm" (ngSubmit)="authenticate(login, password)">
+                <label>Identifiant</label>
+                <input type="text" name="login" [(ngModel)]="login" required>
+                <label>Mot de passe</label>
+                <input type="password" name="password" [(ngModel)]="password" required>
+                <div class="login-card-form-btn">
+                    <button class="btn" type="submit" [disabled]="form.invalid">Authenticate</button>
+                </div>
+            </form>
+        </div>
 
-    <input type="text" name="login" [(ngModel)]="login" required>
-    <input type="password" name="password" [(ngModel)]="password" required>
-    <button type="submit" [disabled]="form.invalid">Authenticate</button>
+        <div class="card-footer">
+            Fait avec <i class="fa fa"></i> par <strong>Elian Oriou</strong> & <strong>Damien Riccio</strong>
+        </div>
+    </div>
+</div>
 
-</form>
+
