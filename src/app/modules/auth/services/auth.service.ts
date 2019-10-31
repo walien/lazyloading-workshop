@@ -7,13 +7,17 @@ import * as db from './users.db';
 @Injectable()
 export class AuthService {
 
-    public readonly userEvents: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+    private readonly userEvents: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
     public authenticate(login: string, password: string): Observable<User> {
         return this.findMatchingUser(login, password)
             .pipe(
                 tap(user => this.userEvents.next(user))
             );
+    }
+
+    public getUsersEvents(): BehaviorSubject<User> {
+        return this.userEvents;
     }
 
     public logout(): void {

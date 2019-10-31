@@ -14,7 +14,7 @@ export abstract class AbstractUserGuard {
 
     private check(url: string) {
         return new Observable<boolean>(observer => {
-            this.authService.userEvents
+            this.authService.getUsersEvents()
                 .pipe(
                     filter(user => user !== undefined),
                     tap(user => console.log(url, `${this.name} invoked `, user)),
