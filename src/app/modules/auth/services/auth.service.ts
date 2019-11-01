@@ -9,15 +9,15 @@ export class AuthService {
 
     private readonly userEvents: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
+    public getUsersEvents(): BehaviorSubject<User> {
+        return this.userEvents;
+    }
+
     public authenticate(login: string, password: string): Observable<User> {
         return this.findMatchingUser(login, password)
             .pipe(
                 tap(user => this.userEvents.next(user))
             );
-    }
-
-    public getUsersEvents(): BehaviorSubject<User> {
-        return this.userEvents;
     }
 
     public logout(): void {
