@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
+import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {Observable} from 'rxjs';
 import {filter, map, tap} from 'rxjs/operators';
@@ -8,11 +8,7 @@ export abstract class AbstractUserGuard {
     protected constructor(private authService: AuthService, private router: Router, private name: string, private requiredRoles: string[]) {
     }
 
-    public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        return this.check(state.url);
-    }
-
-    private check(url: string) {
+    protected check(url: string): Observable<boolean> {
         return new Observable<boolean>(observer => {
             this.authService.getUsersEvents()
                 .pipe(
