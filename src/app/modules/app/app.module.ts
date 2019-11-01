@@ -5,6 +5,7 @@ import {HomeModule} from './home/home.module';
 import {AdminModule} from './admin/admin.module';
 import {AppCommonModule} from './app-common/app-common.module';
 import {RouterModule} from '@angular/router';
+import {AuthModule} from '../auth/auth.module';
 
 const components: any[] = [
     AppComponent
@@ -18,6 +19,7 @@ const components: any[] = [
         RouterModule,
 
         AppCommonModule,
+        AuthModule,
 
         HomeModule,
         AdminModule
