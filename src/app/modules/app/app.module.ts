@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {HomeModule} from './home/home.module';
-import {AdminModule} from './admin/admin.module';
 import {AppCommonModule} from './app-common/app-common.module';
 import {RouterModule} from '@angular/router';
+import {appRoutes} from './app.routes';
 
 const components: any[] = [
     AppComponent
@@ -15,12 +14,9 @@ const components: any[] = [
         components
     ],
     imports: [
-        RouterModule,
+        RouterModule.forChild(appRoutes),
 
-        AppCommonModule,
-
-        HomeModule,
-        AdminModule
+        AppCommonModule
     ],
     providers: []
 })
