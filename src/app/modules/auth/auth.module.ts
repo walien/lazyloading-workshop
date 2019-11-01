@@ -4,8 +4,15 @@ import {AuthService} from './services/auth.service';
 import {FormsModule} from '@angular/forms';
 import {IsStdUserGuard} from './guards/is-std-user.guard';
 import {IsAdminUserGuard} from './guards/is-admin-user.guard';
+import {LogoutButtonComponent} from './components/logout-button/logout-button.component';
+import {UserActionsComponent} from './components/user-actions/user-actions.component';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 
-const components: any[] = [];
+const components: any[] = [
+    UserActionsComponent,
+    LogoutButtonComponent
+];
 const services: any[] = [
     AuthService
 ];
@@ -19,7 +26,9 @@ const pages: any[] = [
 
 @NgModule({
     imports: [
-        FormsModule
+        FormsModule,
+        CommonModule,
+        RouterModule
     ],
     declarations: [
         components,
@@ -28,6 +37,9 @@ const pages: any[] = [
     providers: [
         services,
         guards
+    ],
+    exports: [
+        components
     ]
 })
 export class AuthModule {

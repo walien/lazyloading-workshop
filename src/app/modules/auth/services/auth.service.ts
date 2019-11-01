@@ -9,6 +9,10 @@ export class AuthService {
 
     private readonly userEvents: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
+    constructor() {
+        console.log('auth service instantiated');
+    }
+
     public getUsersEvents(): BehaviorSubject<User> {
         return this.userEvents;
     }

@@ -4,6 +4,7 @@ import {AppHeaderComponent} from './components/app-header/app-header.component';
 import {LocalizationService} from './services/localization.service';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {AuthModule} from '../../auth/auth.module';
 
 const components: any[] = [
     AppHeaderComponent
@@ -17,7 +18,9 @@ const pages: any[] = [];
     imports: [
         FormsModule,
         CommonModule,
-        RouterModule
+        RouterModule,
+
+        AuthModule
     ],
     declarations: [
         components,

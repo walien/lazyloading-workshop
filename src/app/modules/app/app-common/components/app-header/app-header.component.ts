@@ -20,8 +20,4 @@ export class AppHeaderComponent implements OnInit {
             .pipe(filter(user => user !== undefined))
             .subscribe(user => this.user = user);
     }
-
-    public logout(): void {
-        this.authService.logout();
-    }
 }
