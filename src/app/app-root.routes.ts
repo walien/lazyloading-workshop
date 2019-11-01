@@ -1,6 +1,4 @@
 import {Routes} from '@angular/router';
-import {appRoutes} from './modules/app/app.routes';
-import {authRoutes} from './modules/auth/auth.routes';
 
 export const appRootRoutes: Routes = [
     {
@@ -10,10 +8,10 @@ export const appRootRoutes: Routes = [
     },
     {
         path: 'login',
-        children: authRoutes
+        loadChildren: './modules/auth/auth.module#AuthModule'
     },
     {
         path: 'app',
-        children: appRoutes
+        loadChildren: './modules/app/app.module#AppModule'
     }
 ];
