@@ -11,12 +11,12 @@ export const appRoutes: Routes = [
             {
                 path: 'home',
                 loadChildren: './home/home.module#HomeModule',
-                canActivate: [IsStdUserGuard]
+                canLoad: [IsStdUserGuard]
             },
             {
                 path: 'admin',
                 loadChildren: './admin/admin.module#AdminModule',
-                canActivate: [IsAdminUserGuard]
+                canLoad: [IsAdminUserGuard]
             }
         ]
     }
