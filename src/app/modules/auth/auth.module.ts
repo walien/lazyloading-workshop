@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {LoginPage} from './pages/login/login.page';
 import {AuthService} from './services/auth.service';
 import {FormsModule} from '@angular/forms';
@@ -35,10 +35,6 @@ const pages: any[] = [
         components,
         pages
     ],
-    providers: [
-        services,
-        guards
-    ],
     exports: [
         components
     ]
@@ -46,5 +42,18 @@ const pages: any[] = [
 export class AuthModule {
     constructor() {
         console.log('AuthModule loaded');
+    }
+
+    public static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: AuthModule,
+            providers: [services, guards]
+        };
+    }
+
+    public static forChild(): ModuleWithProviders {
+        return {
+            ngModule: AuthModule
+        };
     }
 }

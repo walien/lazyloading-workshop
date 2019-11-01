@@ -20,7 +20,7 @@ const pages: any[] = [];
         CommonModule,
         RouterModule,
 
-        AuthModule
+        AuthModule.forChild()
     ],
     declarations: [
         components,
