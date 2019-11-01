@@ -8,6 +8,7 @@ import {LogoutButtonComponent} from './components/logout-button/logout-button.co
 import {UserActionsComponent} from './components/user-actions/user-actions.component';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import {authRoutes} from './auth.routes';
 
 const components: any[] = [
     UserActionsComponent,
@@ -28,7 +29,7 @@ const pages: any[] = [
     imports: [
         FormsModule,
         CommonModule,
-        RouterModule
+        RouterModule.forChild(authRoutes)
     ],
     declarations: [
         components,
