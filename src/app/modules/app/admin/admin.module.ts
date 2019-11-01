@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {AdminPage} from './pages/admin/admin.page';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {adminRoutes} from './admin.routes';
 
 const components: any[] = [];
 const services: any[] = [];
@@ -12,7 +14,8 @@ const pages: any[] = [
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        RouterModule.forChild(adminRoutes)
     ],
     declarations: [
         components,

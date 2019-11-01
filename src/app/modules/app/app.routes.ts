@@ -2,8 +2,6 @@ import {Routes} from '@angular/router';
 import {IsStdUserGuard} from '../auth/guards/is-std-user.guard';
 import {IsAdminUserGuard} from '../auth/guards/is-admin-user.guard';
 import {AppComponent} from './app.component';
-import {adminRoutes} from './admin/admin.routes';
-import {homeRoutes} from './home/home.routes';
 
 export const appRoutes: Routes = [
     {
@@ -12,12 +10,12 @@ export const appRoutes: Routes = [
         children: [
             {
                 path: 'home',
-                children: homeRoutes,
+                loadChildren: './home/home.module#HomeModule',
                 canActivate: [IsStdUserGuard]
             },
             {
                 path: 'admin',
-                children: adminRoutes,
+                loadChildren: './admin/admin.module#AdminModule',
                 canActivate: [IsAdminUserGuard]
             }
         ]

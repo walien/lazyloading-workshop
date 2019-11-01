@@ -7,25 +7,25 @@ import * as db from './users.db';
 @Injectable()
 export class AuthService {
 
-    private readonly userEvents: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+    private static readonly userEvents: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
     constructor() {
         console.log('auth service instantiated');
     }
 
     public getUsersEvents(): BehaviorSubject<User> {
-        return this.userEvents;
+        return AuthService.userEvents;
     }
 
     public authenticate(login: string, password: string): Observable<User> {
         return this.findMatchingUser(login, password)
             .pipe(
-                tap(user => this.userEvents.next(user))
+                tap(user => AuthService.userEvents.next(user))
             );
     }
 
     public logout(): void {
-        this.userEvents.next(null);
+        AuthService.userEvents.next(null);
     }
 
     private findMatchingUser(login: string, password: string): Observable<User> {
