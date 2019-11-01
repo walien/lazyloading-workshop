@@ -1,8 +1,10 @@
-HOME
-
-<div *ngFor="let hydrometry of localizationHydrometry">
-    <h1>{{ hydrometry.localization.name }}</h1>
-    <hubeau-observations-chart [chartType]="'ColumnChart'"
-                               [observationRequestParams]="hydrometry.apiParams"></hubeau-observations-chart>
+<div class="bloc-city-stats" *ngFor="let hydrometry of localizationHydrometry">
+    <div class="card">
+        <h1>{{ hydrometry.localization.name }}</h1>
+        <div class="card-content">
+            <hubeau-observations-chart [chartType]="'ColumnChart'"
+                                       [observationRequestParams]="hydrometry.apiParams"></hubeau-observations-chart>
+        </div>
+    </div>
 </div>
 

@@ -7,10 +7,14 @@
         <div class="card-content">
             <h2 class="text-primary">Connectez-vous</h2>
             <form class="login-card-form" #form="ngForm" (ngSubmit)="authenticate(login, password)">
-                <label>Identifiant</label>
-                <input type="text" name="login" [(ngModel)]="login" required>
-                <label>Mot de passe</label>
-                <input type="password" name="password" [(ngModel)]="password" required>
+                <label>
+                    <span class="label">Identifiant</span>
+                    <input type="text" name="login" [(ngModel)]="login" required>
+                </label>
+                <label>
+                    <span class="label">Mot de passe</span>
+                    <input type="password" name="password" [(ngModel)]="password" required>
+                </label>
                 <div class="login-card-form-btn">
                     <button class="btn" type="submit" [disabled]="form.invalid">Authenticate</button>
                 </div>

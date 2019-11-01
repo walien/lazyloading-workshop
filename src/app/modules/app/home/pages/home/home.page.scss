@@ -1,1 +1,10 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.bloc-city-stats {
+    margin: 8px 16px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}

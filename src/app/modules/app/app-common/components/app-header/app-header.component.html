@@ -1,5 +1,5 @@
 <div class="app-header">
-    <span><a [routerLink]="['/app/home']">LazyLoading Workshop</a></span>
+    <span><a class="btn" [routerLink]="['/app/home']">LazyLoading Workshop</a></span>
     <span class="connected-user" *ngIf="user">
         {{ user?.fullName }} - {{ user?.role }}
         - <user-actions [user]="user"></user-actions>
