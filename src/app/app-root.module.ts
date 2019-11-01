@@ -5,6 +5,7 @@ import {AppRootComponent} from './app-root.component';
 import {RouterModule} from '@angular/router';
 import {appRootRoutes} from './app-root.routes';
 import {CommonModule} from '@angular/common';
+import {AuthModule} from './modules/auth/auth.module';
 
 const components: any[] = [
     AppRootComponent
@@ -17,7 +18,9 @@ const components: any[] = [
     imports: [
         CommonModule,
         BrowserModule,
-        RouterModule.forRoot(appRootRoutes, {useHash: true})
+        RouterModule.forRoot(appRootRoutes, {useHash: true}),
+
+        AuthModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppRootComponent]
