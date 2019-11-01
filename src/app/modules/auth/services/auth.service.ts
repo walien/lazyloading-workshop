@@ -4,7 +4,9 @@ import {User} from '../model/user.model';
 import {tap} from 'rxjs/operators';
 import * as db from './users.db';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthService {
 
     private static readonly userEvents: BehaviorSubject<User> = new BehaviorSubject<User>(null);

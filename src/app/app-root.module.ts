@@ -19,8 +19,7 @@ const components: any[] = [
         CommonModule,
         BrowserModule,
         RouterModule.forRoot(appRootRoutes, {useHash: true}),
-
-        AuthModule.forRoot()
+        AuthModule
     ],
     providers: [],
     bootstrap: [AppRootComponent]
