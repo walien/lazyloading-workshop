@@ -1,23 +1,41 @@
-ADMIN
+<div class="card">
+    <div class="card-content">
+        <form (ngSubmit)="storeLocalizations()">
+                <div class="container-card">
+                    <!-- TODO Add class "_active" -->
+                    <div class="card card-localization {{ localization.name }}" *ngFor="let localization of localizations">
+                        <label>
+                            <span class="city-avatar"></span>
+                            <h1>{{ localization.name }}</h1>
+                            <div class="coordinated">
+                                <div class="coordinated-value">
+                                    <label>Latitude</label>
+                                    <span class="coordinated-value-txt"> {{ localization.latitude }}</span>
+                                </div>
+                                <div class="coordinated-value">
+                                    <label>Longitude</label>
+                                    <span class="coordinated-value-txt">{{ localization.longitude }}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <br>
+                                <input class="inp-cbx" type="checkbox" [(ngModel)]="localization.enabled" style="display: none;"/>
+                                <label class="cbx">
+                                <span>
+                                    <svg width="24px" height="20px" viewbox="0 0 12 10">
+                                      <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                    </svg>
+                                </span>
+                                </label>
+                                <br>
+                            </div>
+                        </label>
+                    </div>
+                </div>
 
-<form (ngSubmit)="storeLocalizations()">
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-            <th>Enabled ?</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let localization of localizations">
-            <td>{{ localization.name }}</td>
-            <td>{{ localization.latitude }}</td>
-            <td>{{ localization.longitude }}</td>
-            <td><input name="enabled" type="checkbox" [(ngModel)]="localization.enabled"></td>
-        </tr>
-        </tbody>
-    </table>
-    <button type="submit">Store</button>
-</form>
+                <div class="container-actions">
+                    <button class="btn" type="submit">Store</button>
+                </div>
+        </form>
+    </div>
+</div>
