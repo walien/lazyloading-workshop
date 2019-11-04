@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 .card {
     background-color: $white;
     border-radius: $global-radius;
-    box-shadow: rgba(0, 0, 0, 0.22) 0 0 9px 0px;
+    box-shadow: rgba(0, 0, 0, 0.22) 0 0 9px 0;
 
     &-content {
         padding: 16px 24px;

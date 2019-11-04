@@ -32,6 +32,17 @@
         max-width: 298px;
         text-align: center;
         cursor: pointer;
+        transition: 240ms;
+
+        &:hover {
+            transition: 240ms;
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transition: 140ms;
+            transform: scale(1);
+        }
 
         &._active {
             border: 4px solid #3283ff;
