@@ -51,9 +51,30 @@
             justify-content: flex-end;
             width: 100%;
             margin: 8px 0 16px 0;
+            overflow: hidden;
 
             .btn {
+                position: relative;
                 width: 100%;
+
+                &:before {
+                    transition: 340ms;
+                    font-family: 'lazyloading';
+                    position: absolute;
+                    top: 53%;
+                    right: -16px;
+                    transform: translate(0, -50%);
+                    content: '\e07d';
+                    font-size: 22px;
+                    color: rgba(white, 0.5);
+                }
+
+                &:hover {
+                    &:before {
+                        transition: 140ms;
+                        right: 16px;
+                    }
+                }
             }
         }
     }
@@ -62,6 +83,13 @@
         font-weight: 300;
         font-size: 12px;
         text-align: center;
+
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            color: #3183ff;
+        }
 
         strong {
             color: #3283ff;

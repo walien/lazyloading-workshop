@@ -1,10 +1,81 @@
 .app-header {
+    display: inline-flex;
+    align-items: center;
     background-color: rgba(black, 0.5);
     border-radius: 8px;
     margin: 24px 14px 0 14px;
-    padding: 24px 16px;
     color: white;
+    width: calc(100vw - 28px);
+
+    &-logo {
+        display: inline-block;
+        padding: 8px 0;
+        border-radius: 8px 0 0 8px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            text-decoration: none;
+            color: white;
+
+            img {
+                margin-right: 12px;
+            }
+        }
+    }
 }
 .connected-user {
-    float: right;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-name {
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 34px;
+            margin-right: 8px;
+            height: 34px;
+        }
+
+        .label {
+            margin: 0 28px 0 16px;
+            color: white;
+
+            .fullName {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .role {
+                font-size: 14px;
+                font-weight: normal;
+            }
+        }
+    }
+
+    user-actions, logout-button {
+        height: 68px;
+        width: 68px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 340ms;
+
+        &:hover {
+            transition: 140ms;
+            background-color: rgba(white, 0.5);
+        }
+    }
+
+    user-actions {
+        border-left: 1px solid rgba(white, 0.2);
+        border-right: 1px solid rgba(white, 0.2);
+    }
+    logout-button {
+        border-radius: 0 8px 8px 0;
+    }
 }

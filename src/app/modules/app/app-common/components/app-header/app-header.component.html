@@ -1,9 +1,20 @@
 <div class="app-header">
-    <span><a class="btn" [routerLink]="['/app/home']">LazyLoading Workshop</a></span>
-    <span class="connected-user" *ngIf="user">
-        {{ user?.fullName }} - {{ user?.role }}
-        - <user-actions [user]="user"></user-actions>
-        - <logout-button></logout-button>
-    </span>
+    <div class="app-header-logo">
+        <a [routerLink]="['/app/home']">
+              <img src="../../../../../assets/images/svg/logo-app.svg" width="44">LazyLoading Workshop
+        </a>
+    </div>
+    <div class="connected-user" *ngIf="user">
+        <div class="connected-user-name">
+            <i class="icon-user"></i>
+            <div class="label">
+                <span class="fullName">{{ user?.fullName }}</span>
+                <br>
+                <span class="role">{{ user?.role }}</span>
+            </div>
+        </div>
+        <user-actions [user]="user"></user-actions>
+        <logout-button></logout-button>
+    </div>
 </div>
 
