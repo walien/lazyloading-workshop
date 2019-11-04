@@ -4,10 +4,10 @@
 }
 
 .bloc-city-stats {
-    width: 33.33%;
-    margin: 16px;
-    flex-grow: 1;
+    max-width: 48%;
+    padding: 16px;
     flex-wrap: wrap;
+    flex-grow: 1;
 
     @media only screen and (max-width: 1090px) {
         width: 100%;
