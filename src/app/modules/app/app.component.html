@@ -1,5 +1,4 @@
-<!-- TODO Add class "_specialUser" for change theme -->
-<div class="view-content">
+<div class="view-content" [class._specialUser]="user.role.includes('ADMIN')">
     <app-header></app-header>
     <router-outlet></router-outlet>
 </div>
