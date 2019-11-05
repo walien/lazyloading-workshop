@@ -31,8 +31,9 @@
     .card-localization {
         max-width: 298px;
         text-align: center;
-        cursor: pointer;
         transition: 240ms;
+
+        * {cursor: pointer;}
 
         &:hover {
             transition: 240ms;

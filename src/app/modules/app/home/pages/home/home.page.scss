@@ -4,13 +4,13 @@
 }
 
 .bloc-city-stats {
-    max-width: 48%;
+    max-width: calc(50% - 32px);
     padding: 16px;
     flex-wrap: wrap;
     flex-grow: 1;
 
     @media only screen and (max-width: 1090px) {
-        width: 100%;
+        max-width: 100%;
     }
 
     &.Bayonne { .card-title {  background-image: url("../../../../../../assets/images/png/img-bayonne.png");}}
@@ -23,7 +23,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        width: 188px;
+        min-width: 174px;
         padding: 8px 16px;
         background-size: cover;
         background-position: center;

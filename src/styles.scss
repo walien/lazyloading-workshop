@@ -8,7 +8,6 @@ $white :    #FFFFFF;
 
 $global-radius :    8px;
 
-
 // =================== //
 // LAYOUT
 // =================== //
@@ -33,6 +32,24 @@ h1, h2, h3, h4, h5, h6 {
     overflow-y: auto;
     height: 100%;
     padding: 0 8px;
+
+    &._specialUser {
+        background-image: url(assets/images/jpg/bg-user.jpg);
+
+        .app-header { background-color: rgba(114, 222, 112, 0.5);}
+        .btn { background-color: #26a31e;}
+        .inp-cbx:checked + .cbx span:first-child,
+        .cbx span:first-child:before {
+            background: #26a31e;
+            border-color: #26a31e;
+        }
+
+        .card-localization._active {
+            border-color: #26a31e !important;
+
+            h1 { color: #26a31e !important;}
+        }
+    }
 }
 
 .card {
