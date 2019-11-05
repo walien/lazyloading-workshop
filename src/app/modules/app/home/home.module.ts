@@ -5,12 +5,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {GoogleChartsModule} from 'angular-google-charts';
 import {CommonModule} from '@angular/common';
 import {HubeauObservationsChartComponent} from './components/hubeau/charts/observations/hubeau-observations-chart.component';
+import {BigDataService} from './services/big-data.service';
 
 const components: any[] = [
     HubeauObservationsChartComponent
 ];
 const services: any[] = [
-    HubeauService
+    HubeauService,
+    BigDataService
 ];
 const pages: any[] = [
     HomePage
