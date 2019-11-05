@@ -22,6 +22,7 @@
    .container-card {
        display: inline-flex;
        justify-content: center;
+       flex-wrap: wrap;
     }
 
     .container-actions {
