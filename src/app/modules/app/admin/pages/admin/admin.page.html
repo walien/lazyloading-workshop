@@ -2,7 +2,6 @@
     <div class="card-content">
         <form (ngSubmit)="storeLocalizations()">
                 <div class="container-card">
-                    <!-- TODO Add class "_active" -->
                     <div class="card card-localization {{ localization.name }}" *ngFor="let localization of localizations">
                         <label>
                             <span class="city-avatar"></span>
@@ -19,7 +18,7 @@
                             </div>
                             <div>
                                 <br>
-                                <input class="inp-cbx" type="checkbox" name="enabled" [(ngModel)]="localization.enabled" style="display: none;"/>
+                                <input class="inp-cbx" type="checkbox" [name]="localization.name" [(ngModel)]="localization.enabled" style="display: none;"/>
                                 <label class="cbx">
                                     <span>
                                         <svg width="24px" height="20px" viewbox="0 0 12 10">
